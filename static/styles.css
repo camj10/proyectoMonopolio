@@ -1,0 +1,80 @@
+/* .contenedor {
+  display: flex;
+  align-items: right;
+  height: 100%;
+  width: 100%;
+  margin-right: 40px;
+  background-color: rgb(161, 219, 236);
+  display: grid;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.tablero {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(4,0.5fr);
+  background-color: rgb(224, 219, 153);
+  border: dotted thin black;
+}
+.tablero *{
+  text-align: center;
+  font-size: 35px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+.piso {
+  background-color: rgb(226, 241, 245);
+  border: black thin solid;
+}
+.vacio {
+  color: red;
+  font-size: 100px;
+}
+#inicio {
+  background-color: rgb(238, 97, 3);
+}
+#izq{
+  text-align: right;
+}
+#der{
+  text-align: left;
+}
+
+#btnDado{
+  
+}
+/* .fila {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(12, 202, 5);
+} */
+/* .cuadro {
+  /*background-color: rgb(149, 202, 5);*/
+  /* height: 25%;
+  width: 25%;
+  border-color: red;
+  border-style: solid;
+} 
+.vacio {
+  /* background-color: rgb(170, 9, 162); */
+  /* height: 25%;
+  width: 25%;
+  border-color: black;
+  border-style: solid;
+}  */
+/* .tablero {
+  width: 60em;
+  height: 48em;
+  background-color: red;
+}
+.cuadro {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(161, 219, 236);
+}/*

@@ -1,0 +1,170 @@
+<!--<!doctype html>-->
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+</head>
+
+<body>
+  <!-- <div class="contenedor">
+    <div class="tablero">
+      <div class="fila"  id="fila1">
+        <div class="cuadro" id="cuadro1">
+        
+          <p id="nombre1" class="nomCuadro"></p>
+          <p id="descripcion1"></p>
+          <p id="tipo1"></p>
+          <p id="precio1"></p> -->
+        <!-- </div>
+        <div class="cuadro" id="cuadro2">
+          <p id="nombre2" class="nomCuadro"></p>
+          <p id="descripcion2"></p>
+          <p id="tipo2"></p>
+          <p id="precio2"></p>
+        </div>
+        <div class="cuadro" id="cuadro3">
+          <p id="nombre3" class="nomCuadro"></p>
+          <p id="descripcion3"></p>
+          <p id="tipo3"></p>
+          <p id="precio3"></p>
+        </div>
+        <div class="cuadro" id="cuadro4">
+          <p id="nombre4" class="nomCuadro"></p>
+          <p id="descripcion4"></p>
+          <p id="tipo4"></p>
+          <p id="precio4"></p>
+        </div>
+      </div>
+      <div class="fila"  id="fila2">
+        <div class="cuadro" id="cuadro11">
+          <p id="nombre11" class="nomCuadro"></p>
+          <p id="descripcion11"></p>
+          <p id="tipo11"></p>
+          <p id="precio11"></p>
+        </div>
+        <div class="vacio" ></div>
+        <div class="vacio"></div>
+        <div class="cuadro" id="cuadro5">
+          <p id="nombre5" class="nomCuadro"></p>
+          <p id="descripcion5"></p>
+          <p id="tipo5"></p>
+          <p id="precio5"></p>
+        </div>
+      </div>
+      <div class="fila" id="fila3">
+        <div class="cuadro" id="cuadro10">
+          <p id="nombre10" class="nomCuadro"></p>
+          <p id="descripcion10"></p>
+          <p id="tipo10"></p>
+          <p id="precio10"></p>
+        </div>
+        <div class="vacio"></div>
+        <div class="vacio"></div>
+        <div class="cuadro" id="cuadro6">
+          <p id="nombre6" class="nomCuadro"></p>
+          <p id="descripcion6"></p>
+          <p id="tipo6"></p>
+          <p id="precio6"></p>
+        </div>
+      </div>
+      <div class="fila" id="fila4">
+        <div class="cuadro" id="cuadro9">
+          <p id="nombre9" class="nomCuadro"></p>
+          <p id="descripcion9">{{tablero.1.1}}</p>
+          <p id="tipo9"></p>
+          <p id="precio9"></p>
+        </div>
+        <div class="cuadro" id="cuadro8">
+          <p id="nombre8" class="nomCuadro"></p>
+          <p id="descripcion8"></p>
+          <p id="tipo8"></p>
+          <p id="precio8"></p>
+        </div>
+        <div class="cuadro" id="cuadro7">
+          <p id="nombre7" class="nomCuadro"></p>
+          <p id="descripcion7"></p>
+          <p id="tipo7"></p>
+          <p id="precio7"></p>
+        </div>
+        <div class="cuadro" id="inicio">
+          <p>Inicio</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <form action="/add_contact" method="POST">
+    <div class="form-group">
+            <input type="text" class="form-control" name="fullname" placeholder="Nombre completo">
+    </div>
+     <div class="form-group">
+            <input type="text" class="form-control" name="phone" placeholder="Numero de telefono">
+    </div>
+     <div class="form-group">
+            <input type="text" class="form-control" name="email" placeholder="Correo electronico">
+    </div>
+    <button class="btn btn-primary btn-block" type="submit">Guardar</button> -->
+<!-- </form> -->
+<div class="tablero">
+  <div class="piso" id="inicio">
+    <button id="btn" onclick="inicio()">Inicio</button>
+  </div>
+  <div class="piso" id="c1">
+    <p>{{tablero.0.0}}</p>
+    <p>{{tablero.0.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.1.0}}</p>
+    <p>{{tablero.1.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.2.0}}</p>
+    <p>{{tablero.2.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.3.0}}</p>
+    <p>{{tablero.3.1}}</p>
+  </div>
+  <div class="vacio" id="izq">MONO
+  </div>
+  <div class="vacio" id="der">POLIO
+  </div>
+  <div class="piso">
+    <p>{{tablero.4.0}}</p>
+    <p>{{tablero.4.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.5.0}}</p>
+    <p>{{tablero.5.1}}</p>
+  </div>
+  <div class="vacio" id="datos">
+  </div>
+  <div class="vacio" id="dado">
+    <button id="btnDado" onclick="tirarDado(id)">6</button>
+  </div>
+  <div class="piso">
+    <p>{{tablero.6.0}}</p>
+    <p>{{tablero.6.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.7.0}}</p>
+    <p>{{tablero.7.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.8.0}}</p>
+    <p>{{tablero.8.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.9.0}}</p>
+    <p>{{tablero.9.1}}</p>
+  </div>
+  <div class="piso">
+    <p>{{tablero.10.0}}</p>
+    <p>{{tablero.10.1}}</p>
+  </div>
+</div>
+  <script src="{{ url_for('static',filename='script.js') }}"></script>
+</body>
+
+</html>
