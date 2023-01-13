@@ -15,7 +15,7 @@ mysql = MySQL(app)
 @app.route('/')
 def index():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT nombre,precio FROM tablero')
+    cur.execute('SELECT nombre,precio,disponibilidad FROM tablero')
     data = cur.fetchall()
     cur.close()
     return render_template('index.html', tablero=data)
