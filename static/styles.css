@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 .tablero {
-  height: 100%;
+  height: 90%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -21,9 +21,9 @@
   background-color: rgb(224, 219, 153);
   border: dotted thin black;
 }
-.tablero *{
+.tablero{
   text-align: center;
-  font-size: 35px;
+  font-size: 30px;
   transition: 0.2s ease-in-out;
   cursor: pointer;
   user-select: none;
@@ -32,9 +32,12 @@
   background-color: rgb(226, 241, 245);
   border: black thin solid;
 }
-.vacio {
+#izq,#der {
   color: red;
   font-size: 100px;
+}
+.btnJugar{
+  font-family: fantasy;
 }
 #inicio {
   background-color: rgb(238, 97, 3);
@@ -45,13 +48,51 @@
 #der{
   text-align: left;
 }
-
 #btnDado{
-  
+  /*height: 150px;
+  width: 150px; */
+  border: solid 2px black;
+  box-shadow: 5px 5px 5px #000000;
+}
+#btnJugar{
+  /*height: 100px;
+  width: 150px; */
+  background-color: #ee7661;
+  color: #ffffff;
+  border: none;
+  font-size: 35px;
+  box-shadow: 5px 5px 5px #000000;
 }
 .div_hide {
   opacity: 0;
 }
+#aparte {
+  position: absolute;
+  align-items: center;
+  color: #ffffff;
+  font-size: 25px;
+  background-color: #ee7661;
+  width: 40%; 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  padding: 3px;
+}
+.preguntas{
+  display: flex;
+  justify-content: center;
+}
+.si,.no{
+  margin: 5px;
+  padding: 5px;
+  background-color: #f8b6aa;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  box-shadow: 5px 5px 5px #000000;
+}  
+
 /* .fila {
   height: 100%;
   width: 100%;
