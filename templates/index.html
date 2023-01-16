@@ -177,33 +177,14 @@
     <p id="c11d">{{tablero.10.2}}</p>
   </div>
 </div>
-<!-- <div id="aparte">
-  <div>
-    <label>Desea comprar la propiedad?</label>
-  </div>
-   <div class="preguntas"> -->
-    <!-- <button class="si" id="si" name="request">SI...............</button>
-    <button class="no" id="no" name="request">NO...............</button> --> 
-  <!-- </div> -->
-
-  <form>
-    <div>
+  <div id="aparte" class="aparte">
+    <form name="quizForm" onsubmit="return verificarRespuestas()">
       <label>Desea comprar la propiedad?</label>
-    </div>
-    <div>
-        <p>
-            <input type="text" name="reqsi" id="reqsi" placeholder="Escriba SI">
-        </p>
-    </div>
-    <div>
-        <p>
-            <input type="text" name="reqno" id="reqno" placeholder="Escriba NO">
-        </p>
-    </div>
-    <p>
-      <input type="submit" value="Responder">
-  </p>
-  </form>
+      <input type="radio" name="p1" value="si"><span>si</span>
+      <input type="radio" name="p1" value="no"><span>no</span>
+      <input type="submit" value="enviar" id="btnResp">
+    </form>
+  </div>
 </div>
   <script src="{{ url_for('static',filename='script.js') }}"></script>
 </body>

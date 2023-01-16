@@ -1,14 +1,17 @@
 const { ajaxPrefilter } = require("jquery");
-
+let respCompra;
+let dinero1= 1000; let dinero2=1000;
+let prop1=[]; let prop2=[];
 let jug, propietario= [n,n,n,n,n,n,n,n,n,n,n];
 btnDado.disabled = true;
+btnResp.disabled = true;
 //Prueba para ocultar inicialmente la pregunta de SI o NO
 // var el = document.querySelector("#aparte");
 //el.setAttribute("style", "background-color:darkblue;");
 //document.querySelector('#aparte').style.display = "none"; 
 //document.getElementById('aparte').innerHTML.style.backgroundColor= "blue";
 
-jug =1;
+// jug =1;
 function inicioJugar(){
     document.querySelector('#aparte').style.display = "none"; 
     alert("El juego ha iniciado");
@@ -18,7 +21,7 @@ function inicioJugar(){
     document.getElementById("btnJugar").style.visibility = "hidden";
 }
 function dado(){
-    let posAct=0;
+    var posAct=0;
     let nroaleatorio = aleatorio();
     let fuente = "/static/img/L"+nroaleatorio+".jpg";
     document.querySelector('.img').setAttribute('src',fuente);
@@ -26,24 +29,16 @@ function dado(){
     posAct=posAct+nroaleatorio;
     alert("Posicion actual: "+posAct);
     if(verificacion(posAct)){
-        //Acá activar la opcion de comprar o no
         document.querySelector('#aparte').style.display = "flex"; 
-        if(sino()==1){
-            document.querySelector('#aparte').style.display = "none";
-        }else if(sino==0){
-            document.querySelector('#aparte').style.display = "none";
-        }
-        //No olvidar: Cambiar el texto Disponible sobre cada casilla que ya se haya vendido e ir agregando los nombres de los compradores
+        btnResp.disabled= false;
     } else{
-
+        alert("Casilla ocupada");
+        inicioJugar();
     }
-
-
-    alert("Jugador " + jug);
 }
 function aleatorio(){
     let nro = Math.floor(Math.random()*6)+1;
-    console.log("El numero aleotorio es: "+nro);
+    console.log("El numero aleatorio es: "+nro);
     return nro;
 } 
 function verificacion(posAct){
@@ -60,29 +55,7 @@ function verificacion(posAct){
 //         },50);
 //     //Acá falta configurar para poder tomar si es SI o No y mandar a la funcion
 // }
-function sino(){//NO FUNCIONA ASÍ, NO ACTUA CUANDO SE PRESIONA ALGUNO DE LOS BOTONES. BUSCAR OTRA MANERA
-    //Probar que al tener onclick alguno de los botones, llame a una funcion que sea de SI y otra de NO, 
-    //que nos permita retornar un valor de 1 o 0 a la función en la cual estaba trabajando (creo que era de dado)
-    //Puede ser usando el return con el valor devuelto en la nueva función.
-    //Ver si el nombre de la varible no, iterfiere de alguna manera en el funcionamiento de la función o no.
-    let si = document.getElementById("si"); 
-    let no = document.getElementById("no"); 
-    if(si.onclick) return(1);
-    else{
-        return(0);
-    }
-    //Así funcionaba:
-    //let si = document.getElementById("si"); // Encuentra el elemento "si" en el sitio
-    // si.onclick = muestraAlerta; // Agrega función onclick al elemento
-    //let no = document.getElementById("no"); // Encuentra el elemento "no" en el sitio
-    // no.onclick = muestraAlerta; // Agrega función onclick al elemento
-    // function muestraAlerta(evento) {
-    //     alert("Evento onclick ejecutado!");
-    // }
-}
-function muestraAlerta() {
-    alert("Evento onclick de SI o NO ejecutado!");
-}
+
 
 //Para mostrar el ganador en datos:
 // if(nroaleatorio1>nroaleatorio2){
@@ -93,3 +66,23 @@ function muestraAlerta() {
 // console.log("Se removera la letra d en el primer recuadro");
 // const disp = document.querySelector('#c1d');
 // if( disp=='Disponible') 
+function verificarRespuestas(){
+    alert("Boton enviar activado");
+    var myForm= document.forms["quizForm"];
+    if(myForm["p1"].value===null || myForm["p1"].value===""){
+        alert("Favor responde la pregunta");
+        return false;
+    }else{
+        if(myForm["p1"].value == 'si'){
+            alert("Ha respondido si");
+            document.querySelector('#datos').textContent="si";
+            respCompra= 1;
+            return false;
+        } else if(myForm["p1"].value == 'no'){
+            alert("Ha respondido no");
+            document.querySelector('#datos').textContent="no";
+            respCompra= 0;
+            return false;
+        }
+    }
+}
