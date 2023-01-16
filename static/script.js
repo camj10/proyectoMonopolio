@@ -1,5 +1,4 @@
 const { ajaxPrefilter } = require("jquery");
-let respCompra;
 let dinero1= 1000; let dinero2=1000;
 let prop1=[]; let prop2=[];
 let jug, propietario= [n,n,n,n,n,n,n,n,n,n,n];
@@ -66,23 +65,3 @@ function verificacion(posAct){
 // console.log("Se removera la letra d en el primer recuadro");
 // const disp = document.querySelector('#c1d');
 // if( disp=='Disponible') 
-function verificarRespuestas(){
-    alert("Boton enviar activado");
-    var myForm= document.forms["quizForm"];
-    if(myForm["p1"].value===null || myForm["p1"].value===""){
-        alert("Favor responde la pregunta");
-        return false;
-    }else{
-        if(myForm["p1"].value == 'si'){
-            alert("Ha respondido si");
-            document.querySelector('#datos').textContent="si";
-            respCompra= 1;
-            return false;
-        } else if(myForm["p1"].value == 'no'){
-            alert("Ha respondido no");
-            document.querySelector('#datos').textContent="no";
-            respCompra= 0;
-            return false;
-        }
-    }
-}
