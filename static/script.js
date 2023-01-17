@@ -6,7 +6,7 @@ btnDado.disabled = true;
 var posAct=0; 
 
 function inicioJugar(){ 
-    alert("El juego ha iniciado");
+    alert("A jugar!");
     btnDado.disabled= false;
     // document.querySelector('#datos').textContent="Presione el dado";
     alert("Presione el dado");
@@ -21,10 +21,14 @@ function dado(){
     if(posAct>11){posAct=posAct-11;}
     document.getElementById('c'+posAct).style.backgroundColor="blue";
     alert("Posicion actual: "+posAct);
+    alert("Dinero actual: "+dinero);
     setTimeout(function(){//Uso para ver la casilla pintada y que luego siga el juego
         if(verificacion(posAct)){
             let costo=document.getElementById('c'+posAct+'v').innerHTML;
             let nombrePropiedad= document.getElementById('c'+posAct+'n').innerHTML;
+            alert(
+                "costo = "+costo
+            );
             if(dinero >= costo){
                 alert("Dinero disponible para la compra");
                 alert("Ahora la propiedad "+nombrePropiedad+" es suya");
@@ -33,18 +37,19 @@ function dado(){
                 prop[posAct-1]=nombrePropiedad;
                 propiedadesCompradas++;
                 document.getElementById("c"+posAct+"d").style.visibility = "hidden";
-                if(propiedadesCompradas<12)inicioJugar();
-                    else gameover();
+                if(propiedadesCompradas<12){inicioJugar();}
+                    else{gameover();} 
             }else{
                 alert("Ya no posee suficiente dinero. Juego terminado");
                 gameover();
             }
         } else{
             alert("Casilla ocupada");
-            if(propiedadesCompradas<12)inicioJugar();
-            else gameover();
+            if(propiedadesCompradas<12){inicioJugar();}
+            else{gameover();}
         }
     },500);
+    return false;
 }
 function aleatorio(){
     let nro = Math.floor(Math.random()*6)+1;
@@ -60,7 +65,10 @@ function verificacion(posAct){
     }
 }
 function gameover(){
-    alert("Ha terminado el juego con: "+propiedadesCompradas);
+    alert("Ha terminado el juego con: "+propiedadesCompradas+" propiedades compradas");
+    btnDado.disabled = true;
+    btnJugar.disabled = true;
+    document.querySelector(".tablero").style.visibility = "hidden";
 }
 
 
