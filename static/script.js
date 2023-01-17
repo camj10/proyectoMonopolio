@@ -32,7 +32,7 @@ function dado(){
                 propiedades[posAct-1]='ocupado';
                 prop[posAct-1]=nombrePropiedad;
                 propiedadesCompradas++;
-                document.getElementById('c'+posAct).style.backgroundColor="red";
+                document.getElementById("c"+posAct+"d").style.visibility = "hidden";
                 if(propiedadesCompradas<12)inicioJugar();
                     else gameover();
             }else{
