@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .tablero {
-  height: 90%;
+  height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
