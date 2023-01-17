@@ -1,39 +1,50 @@
-const { ajaxPrefilter } = require("jquery");
-let dinero1= 1000; let dinero2=1000;
-let prop1=[]; let prop2=[];
-let jug, propietario= [n,n,n,n,n,n,n,n,n,n,n];
+let dinero= 1000; 
+let prop=[]; 
+let jug, propiedades= ['n','n','n','n','n','n','n','n','n','n','n']; 
+let propiedadesCompradas=0;
 btnDado.disabled = true;
-btnResp.disabled = true;
-//Prueba para ocultar inicialmente la pregunta de SI o NO
-// var el = document.querySelector("#aparte");
-//el.setAttribute("style", "background-color:darkblue;");
-//document.querySelector('#aparte').style.display = "none"; 
-//document.getElementById('aparte').innerHTML.style.backgroundColor= "blue";
+var posAct=0; 
 
-// jug =1;
-function inicioJugar(){
-    document.querySelector('#aparte').style.display = "none"; 
+function inicioJugar(){ 
     alert("El juego ha iniciado");
     btnDado.disabled= false;
     // document.querySelector('#datos').textContent="Presione el dado";
     alert("Presione el dado");
     document.getElementById("btnJugar").style.visibility = "hidden";
-}
+} 
 function dado(){
-    var posAct=0;
     let nroaleatorio = aleatorio();
     let fuente = "/static/img/L"+nroaleatorio+".jpg";
     document.querySelector('.img').setAttribute('src',fuente);
     alert("Debe moverse: "+nroaleatorio+" casillas");
     posAct=posAct+nroaleatorio;
+    if(posAct>11){posAct=posAct-11;}
+    document.getElementById('c'+posAct).style.backgroundColor="blue";
     alert("Posicion actual: "+posAct);
-    if(verificacion(posAct)){
-        document.querySelector('#aparte').style.display = "flex"; 
-        btnResp.disabled= false;
-    } else{
-        alert("Casilla ocupada");
-        inicioJugar();
-    }
+    setTimeout(function(){//Uso para ver la casilla pintada y que luego siga el juego
+        if(verificacion(posAct)){
+            let costo=document.getElementById('c'+posAct+'v').innerHTML;
+            let nombrePropiedad= document.getElementById('c'+posAct+'n').innerHTML;
+            if(dinero >= costo){
+                alert("Dinero disponible para la compra");
+                alert("Ahora la propiedad "+nombrePropiedad+" es suya");
+                dinero= dinero-costo;
+                propiedades[posAct-1]='ocupado';
+                prop[posAct-1]=nombrePropiedad;
+                propiedadesCompradas++;
+                document.getElementById('c'+posAct).style.backgroundColor="red";
+                if(propiedadesCompradas<12)inicioJugar();
+                    else gameover();
+            }else{
+                alert("Ya no posee suficiente dinero. Juego terminado");
+                gameover();
+            }
+        } else{
+            alert("Casilla ocupada");
+            if(propiedadesCompradas<12)inicioJugar();
+            else gameover();
+        }
+    },500);
 }
 function aleatorio(){
     let nro = Math.floor(Math.random()*6)+1;
@@ -42,12 +53,38 @@ function aleatorio(){
 } 
 function verificacion(posAct){
     let casillaAVerificar = document.getElementById('c'+posAct+'d').innerHTML;
-    if(casillaAVerificar=='Disponible'){
+    if((casillaAVerificar=='Disponible') && (propiedades[posAct-1]=='n')){
         return(1); 
     }else{
         return(0);
     }
 }
+function gameover(){
+    alert("Ha terminado el juego con: "+propiedadesCompradas);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Prueba para ocultar inicialmente la pregunta de SI o NO
+// var el = document.querySelector("#aparte");
+//el.setAttribute("style", "background-color:darkblue;");
+//document.querySelector('#aparte').style.display = "none"; 
+//document.getElementById('aparte').innerHTML.style.backgroundColor= "blue";
+
+// jug =1;
 // function btnPreg(){
 //     setTimeout( function(){
 //         document.querySelector('#aparte').style.display = "none"; 
