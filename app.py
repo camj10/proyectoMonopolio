@@ -18,7 +18,7 @@ def index():
     cur.execute('SELECT nombre,precio,disponibilidad FROM tablero')
     data = cur.fetchall()
     cur.close()
-    return render_template('index.html', tablero=data)
+    return render_template('index.html', tablero=data
 
 if __name__ == "__main__":
     app.run(debug=True)

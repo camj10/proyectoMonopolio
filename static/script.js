@@ -8,7 +8,6 @@ var posAct=0;
 function inicioJugar(){ 
     alert("A jugar!");
     btnDado.disabled= false;
-    // document.querySelector('#datos').textContent="Presione el dado";
     alert("Presione el dado");
     document.getElementById("btnJugar").style.visibility = "hidden";
 } 
@@ -70,43 +69,3 @@ function gameover(){
     btnJugar.disabled = true;
     document.querySelector(".tablero").style.visibility = "hidden";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Prueba para ocultar inicialmente la pregunta de SI o NO
-// var el = document.querySelector("#aparte");
-//el.setAttribute("style", "background-color:darkblue;");
-//document.querySelector('#aparte').style.display = "none"; 
-//document.getElementById('aparte').innerHTML.style.backgroundColor= "blue";
-
-// jug =1;
-// function btnPreg(){
-//     setTimeout( function(){
-//         document.querySelector('#aparte').style.display = "none"; 
-//         },50);
-//     //Acá falta configurar para poder tomar si es SI o No y mandar a la funcion
-// }
-
-
-//Para mostrar el ganador en datos:
-// if(nroaleatorio1>nroaleatorio2){
-//     document.querySelector('h1').textContent="Gana Jugador 1";
-//  }
-// const cuadro = document.getElementById('c1v').innerHTML;
-// console.log(cuadro);
-// console.log("Se removera la letra d en el primer recuadro");
-// const disp = document.querySelector('#c1d');
-// if( disp=='Disponible') 
