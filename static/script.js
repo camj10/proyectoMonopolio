@@ -10,6 +10,7 @@ function inicioJugar(){
     btnDado.disabled= false;
     alert("Presione el dado");
     document.getElementById("btnJugar").style.visibility = "hidden";
+    document.getElementById("datos").innerHTML = "Dinero actual: "+dinero;
 } 
 function dado(){
     let nroaleatorio = aleatorio();
@@ -18,7 +19,7 @@ function dado(){
     alert("Debe moverse: "+nroaleatorio+" casillas");
     posAct=posAct+nroaleatorio;
     if(posAct>11){posAct=posAct-11;}
-    document.getElementById('c'+posAct).style.backgroundColor="blue";
+    document.getElementById('c'+posAct).style.backgroundColor="orange";
     alert("Posicion actual: "+posAct);
     alert("Dinero actual: "+dinero);
     setTimeout(function(){//Uso para ver la casilla pintada y que luego siga el juego
