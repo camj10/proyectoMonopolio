@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 .tablero {
-  height: 100%;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-template-rows: repeat(4,0.5fr);
@@ -13,6 +11,8 @@
   border: dotted thin black;
 }
 .tablero{
+  height: 100%;
+  width: 100%;
   text-align: center;
   font-size: 30px;
   transition: 0.2s ease-in-out;
@@ -23,15 +23,22 @@
   background-color: rgb(226, 241, 245);
   border: black thin solid;
 }
+.disp{
+  color: rgb(216, 194, 194);
+}
 #izq,#der {
   color: red;
   font-size: 100px;
 }
 .btnJugar{
   font-family: fantasy;
+  cursor: pointer;
 }
 #inicio {
   background-color: rgb(238, 97, 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #izq{
   text-align: right;
@@ -40,20 +47,19 @@
   text-align: left;
 }
 #btnDado{
-  /*height: 150px;
-  width: 150px; */
   border: solid 2px black;
   box-shadow: 5px 5px 5px #000000;
+  cursor: pointer;
 }
 #btnJugar{
-  /*height: 100px;
-  width: 150px; */
   background-color: #ee7661;
   color: #ffffff;
   border: none;
-  font-size: 35px;
-  box-shadow: 5px 5px 5px #000000;
+  font-size: 50px;
+  box-shadow: 5px 5px 5px #ab3838;
+  border-radius: 15px;
 }
-.div_hide {
-  opacity: 0;
+#nro{
+  color: red;
+  font-size: 39.5px;
 }
