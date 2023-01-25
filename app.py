@@ -17,6 +17,8 @@ def index():
     cur = mysql.connection.cursor()
     cur.execute('SELECT nombre,precio,disponibilidad FROM tablero')
     data = cur.fetchall()
+    for fila in data:
+        print(fila)
     cur.close()
     return render_template('index.html', tablero=data)
 
